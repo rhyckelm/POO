@@ -1,21 +1,22 @@
 agenda = {}
+menores = {}
 
 while True:
-    cpf = input('Digite o CPF: ')
+    cpf = input("Digite o CPF: ")
 
     if not cpf:
         break
-    
-    nome = input('Digite o nome: ')
-    idade = input('Digite a idade: ')
-    telefone = input('Digite o telefone: ')
-    
+
+    nome = input("Digite o nome: ")
+    idade = int(input("Digite a idade: "))
+
     agenda[cpf] = {
-        'nome': nome,
-        'idade': idade,
-        'telefone': telefone
+        "nome": nome,
+        "idade": idade,
     }
 
-print('Agenda:')
-for cpf, dados in agenda.items():
-    print(f"{dados['nome']}-{dados['idade']}-{dados['telefone']}")
+    if idade < 18:
+        menores[nome] = agenda
+
+
+print("agenda menores de 18 anos: ", menores)
