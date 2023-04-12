@@ -1,0 +1,30 @@
+funcionario = dict()
+lista = list()
+
+
+def cadastrar():
+    while True:
+        funcionario.clear()
+        funcionario["nome"] = str(input("Nome: "))
+        funcionario["cpf"] = int(input("Cpf: "))
+        funcionario["cargo"] = str(input("Cargo: "))
+        funcionario["salario"] = float(input("Salario: "))
+        funcionario["telefone"] = []
+        qnt = int(input("Deseja adicionar quantos telefones? "))
+        for i in range(qnt):
+            telefone = input("Telefone: ")
+            funcionario["telefone"].append(telefone)
+        lista.append(funcionario.copy())
+        while True:
+            res = str(input("Deseja continuar? [S/N]")).upper()[0]
+            if res in "SN":
+                break
+            print("Erro!, responda apenas com S ou N")
+        if res == "N":
+            break
+
+
+def pesquisar(cpf):
+    indice_pessoas = {i["cpf"]: i for i in lista}
+    nome_procurado = cpf
+    print(indice_pessoas[nome_procurado])
