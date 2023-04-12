@@ -5,9 +5,9 @@ lista = list()
 def cadastrar():
     while True:
         funcionario.clear()
-        funcionario["nome"] = str(input("Nome: "))
-        funcionario["cpf"] = int(input("Cpf: "))
-        funcionario["cargo"] = str(input("Cargo: "))
+        funcionario["nome"] = input("Nome: ")
+        funcionario["cpf"] = input("Cpf: ")
+        funcionario["cargo"] = input("Cargo: ")
         funcionario["salario"] = float(input("Salario: "))
         funcionario["telefone"] = []
         qnt = int(input("Deseja adicionar quantos telefones? "))
@@ -24,7 +24,38 @@ def cadastrar():
             break
 
 
-def pesquisar(cpf):
+'''def pesquisar():
     indice_pessoas = {i["cpf"]: i for i in lista}
-    nome_procurado = cpf
-    print(indice_pessoas[nome_procurado])
+    nome_procurado = input("Digite o cpf: ")
+    print(indice_pessoas[nome_procurado])'''
+
+   
+'''def tel_novo():
+    cpf = input('Digite o cpf: ')
+    for i in lista:
+        if(cpf == i['cpf']):
+            telefone = input("Telefone: ")
+            funcionario["telefone"].append(telefone)
+            print('Telefone novo adicionado')
+        else:
+            print('Cpf nao encontrado.')'''
+            
+def editar(cpf, **kwargs):
+    for i in lista:
+        if(cpf == i['cpf']):
+            cargo = input('Cargo: ')
+            i['cargo'] = cargo
+            salario = input()
+            i['salario'] = salario
+            telefone = input("Telefone: ")
+            i['telefone'] = telefone
+
+            print('Funcionario editado')
+        else:
+            print('Cpf nao encontrado.')
+
+
+
+cadastrar()
+
+print(lista)
